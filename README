@@ -1,0 +1,63 @@
+== Console Web Search
+Hint: In iTerm links can be opened by cmd + click.
+
+== Github Search
+
+$ ruby github.rb mp3
+
+# =>
+...
+(2) wilson / flac2mp3 (Ruby)
+    http://github.com/wilson/flac2mp3/
+    Converter for FLAC to MP3
+
+(1) ymendel / flac2mp3 (Ruby)
+    http://github.com/ymendel/flac2mp3/
+    Converter for FLAC to MP3
+
+http://www.github.com/search?type=Repositories&language=rb&q=mp3
+
+== Google Search
+
+$ ruby google.rb fronx
+
+# =>
+...
+(1) Twitter / fronx
+    http://twitter.com/fronx
+    Twitter is a free social messaging utility for staying
+    connected in real-time.twitter.com/fronx
+
+http://www.google.com/search?q=fronx
+
+Hint: The option '--lucky' opens the first hit in your web browser.
+
+== Dependencies
+
+You need the following gems:
+ * hpricot (0.6.164)
+ * htmlentities (4.0.0)
+
+--
+Copyright (c) 2009 François Wurmus
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.

@@ -1,0 +1,15 @@
+github:
+  root_url: http://www.github.com/search?type=Repositories&language=rb&q=
+  href_prefix: http://github.com
+  selectors:
+    result: div.result
+    link: h2 a
+    title: h2
+    description: div.description
+google:
+  root_url: http://www.google.com/search?q=
+  selectors:
+    result: li.g
+    link: h3 a.l
+    title: h3
+    description: div
