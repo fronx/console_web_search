@@ -13,3 +13,7 @@ google:
     link: h3 a.l
     title: h3
     description: div
+dict:
+  root_url: http://www.dict.cc/?s=
+  selectors:
+    result: tr td.td7nl

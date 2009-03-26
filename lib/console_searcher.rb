@@ -47,6 +47,8 @@ class ConsoleSearcher
           :title => prepare(result.at(@selector[:title])),
           :description => prepare(result.at(@selector[:description]))
         )
+      else
+        prepare(result)
       end
     end.compact
     self.instance_eval &block
