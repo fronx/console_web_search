@@ -6,6 +6,7 @@ def clean(word)
     gsub(/^\d+/,'').
     gsub(/\{.+\}/,'').
     gsub(/\[.+\]/,'').
+    gsub(/[ ]+/,' ').
     strip
 end
 
@@ -17,5 +18,5 @@ ConsoleSearcher.realm(:dict).search do
     terms.each { |t| en.gsub!(t, t.green) }
     puts en << ' => ' << clean(german[index])
   end
-  puts search_url.yellow
+  puts; puts search_url
 end
