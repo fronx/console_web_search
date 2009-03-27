@@ -15,7 +15,6 @@ ConsoleSearcher.realm(:dict).search do
   lwidth = english.max { |a, b| a.length <=> b.length }.length.limit(30) rescue 0
   english.each_with_index do |en, index|
     en = clean(en).rjust(lwidth)
-    terms.each { |t| en.gsub!(t, t.green) }
     puts en << ' => ' << clean(german[index])
   end
   puts; puts search_url

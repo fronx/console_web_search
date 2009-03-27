@@ -71,7 +71,11 @@ class ConsoleSearcher
   
   def prepare(str)
     return '' unless str
-    result = @coder.decode(str.inner_html.replace_tag(:em) { |keyword| keyword.red }.strip_tags )
+    result = @coder.decode(str.inner_html.
+      replace_tag(:em) { |keyword| keyword.red }.
+      replace_tag(:b) { |keyword| keyword.red }.
+      strip_tags
+    )
     result.split("\n").map { |part| part.strip }.select { |part| part.length > 0 }.join(' ')
   end
   
