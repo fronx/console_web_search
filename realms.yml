@@ -13,7 +13,9 @@ google:
     link: h3 a.l
     title: h3
     description: div
-dict:
-  root_url: http://www.dict.cc/?s=
+urban:
+  root_url: http://www.urbandictionary.com/define.php?term=
   selectors:
-    result: tr td.td7nl
+    result: "#entries"
+    title: tr td.word
+    description: tr div.definition

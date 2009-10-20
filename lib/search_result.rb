@@ -9,6 +9,12 @@ class SearchResult
   
   def to_s(indent = 4)
     indent = "\n" + ' ' * indent
-    [title, href.green, description.with_line_length(50).join(indent)].join(indent)
+    [
+      title.red,
+      if href.to_s.strip.length > 0
+        href.green
+      end,
+      description.with_line_length(50).join(indent)
+    ].compact.join(indent)
   end
 end

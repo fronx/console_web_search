@@ -41,17 +41,20 @@ class ConsoleSearcher
       @page = Hpricot(Iconv.iconv('utf-8', f.charset, f.read).to_s)
     end
     @results = (@page/@selector[:result]).map do |result|
-      if href = (result/@selector[:link]).first.attributes['href'] rescue nil
+      begin
         SearchResult.new(
-          :href => href_prefix + href,
+          :href => ((
+              href_prefix +
+                  (result/@selector[:link]).first.
+                      attributes['href']) rescue nil),
           :title => prepare(result.at(@selector[:title])),
           :description => prepare(result.at(@selector[:description]))
         )
-      else
+      rescue => e
         prepare(result)
       end
     end.compact
-    self.instance_eval &block
+    self.instance_eval(&block)
     self
   end
   
@@ -74,9 +77,11 @@ class ConsoleSearcher
     result = @coder.decode(str.inner_html.
       replace_tag(:em) { |keyword| keyword.red }.
       replace_tag(:b) { |keyword| keyword.red }.
+      replace_tag(:br) { "\n" }.
       strip_tags
     )
-    result.split("\n").map { |part| part.strip }.select { |part| part.length > 0 }.join(' ')
+    lines = result.split("\n").map { |part| part.strip }
+    lines.select { |part| part.length > 0 }.join("\n")
   end
   
   def to_query(terms)

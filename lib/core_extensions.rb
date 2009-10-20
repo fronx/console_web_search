@@ -4,7 +4,8 @@ class String
   end
 
   def replace_tag(tag, &block)
-    self.gsub(/<#{tag}>([^<>]+)<\/#{tag}>/) { |match| yield $1 }
+    self.gsub(/<#{tag} ?\/>/) { |match| yield '' }.
+        gsub(/<#{tag}>([^<>]+)<\/#{tag}>/) { |match| yield $1 }
   end
 
   def url_escape
@@ -91,5 +92,12 @@ end
 class Integer
   def limit(n)
     self > n ? n : self
+  end
+end
+
+class Object
+  # nil if false, else self
+  def only_if(&block)
+    self if self.instance_eval(&block)
   end
 end
